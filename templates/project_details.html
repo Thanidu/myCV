@@ -1,0 +1,77 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{%block content%}
+
+
+  <div class="hero hero-single route bg-image" style="background-image: url({% static 'assets/img/back.jpg' %})">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4">Project Details</h2>
+          <ol class="breadcrumb d-flex justify-content-center">
+            <li class="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Project Details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    {%for project in projects %}
+    <!-- ======= Project Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+
+                <div class="swiper-slide">
+                  <img src="{{project.img1.url}}" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="{{project.img2.url}}" alt="">
+                </div>
+
+                <div class="swiper-slide">
+                  <img src="((project.img3.url))" alt="">
+                </div>
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>Project information</h3>
+              <ul>
+                <li><strong>Category</strong>: {{project.category}}g</li>
+                <li><strong>Client</strong>: {{project.client}}</li>
+                <li><strong>Project date</strong>: {{project.projectDate}}</li>
+                <li><strong>Project URL</strong>: <a href={{project.url}}>Link...</a></li>
+              </ul>
+            </div>
+            <div class="Project-description">
+              <h2>{{project.projectTitle}}</h2>
+              <p>
+              {{project.desc}}
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+    {% endfor %}
+  </main><!-- End #main -->
+
+  {%endblock%}
